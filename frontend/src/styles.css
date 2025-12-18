@@ -1,0 +1,427 @@
+/* ===== Global layout ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #0f172a 0%, #020617 45%, #020617 100%);
+  color: #e5f4ff;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main,
+.page {
+  flex: 1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: rgba(15, 23, 42, 0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.35);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.navbar h2 {
+  margin: 0;
+  font-size: 1.3rem;
+  letter-spacing: 0.04em;
+  color: #e0f2fe;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar a {
+  font-size: 0.95rem;
+  color: #cbd5f5;
+  padding-bottom: 0.15rem;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.navbar a:hover {
+  color: #f9fafb;
+  border-color: #38bdf8;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .navbar ul {
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+  }
+}
+
+/* ===== Hero (Home) ===== */
+.hero {
+  padding: 4rem 1.5rem 2rem;
+  text-align: center;
+  background: radial-gradient(circle at top, #1d4ed8 0%, #020617 55%);
+}
+
+.hero h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(2rem, 5vw, 2.7rem);
+}
+
+.hero p {
+  margin: 0;
+  color: #cbd5f5;
+  font-size: 1rem;
+}
+
+/* ===== Categories on Home ===== */
+.categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem 1.5rem 3rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.category-card {
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background: rgba(15, 23, 42, 0.96);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  box-shadow: 0 22px 55px rgba(15, 23, 42, 0.95);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.category-card img {
+  height: 300px;
+  width: 100%;
+  object-fit: contain;
+  background: radial-gradient(circle at top, #0b1120, #020617);
+  padding: 0.75rem;
+}
+
+.category-card h3 {
+  margin: 0;
+  padding: 1rem 1.25rem 1.2rem;
+  font-size: 1.1rem;
+  color: #e0f2fe;
+}
+
+.category-card:hover {
+  transform: translateY(-4px);
+  border-color: #38bdf8;
+  box-shadow: 0 26px 70px rgba(8, 47, 73, 0.9);
+}
+
+/* ===== Product pages ===== */
+.product-page {
+  padding: 2.5rem 1.5rem 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.product-page h2 {
+  margin-bottom: 1.5rem;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.product-card {
+  background: rgba(15, 23, 42, 0.98);
+  border-radius: 0.75rem;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  padding: 1rem 1.1rem 1.3rem;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.95);
+}
+
+.product-card img {
+  border-radius: 0.5rem;
+  margin-bottom: 0.75rem;
+  max-height: 180px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.product-card h3 {
+  margin: 0 0 0.35rem;
+}
+
+.product-card p {
+  margin: 0.15rem 0;
+  font-size: 0.9rem;
+  color: #cbd5f5;
+}
+
+.product-card strong {
+  color: #facc15;
+}
+
+/* ===== Generic page content (About, Services, Contact) ===== */
+.page-section {
+  padding: 2.5rem 1.5rem 3rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.page-section h1,
+.page-section h2 {
+  margin-bottom: 1rem;
+}
+
+.page-section p {
+  margin: 0 0 0.75rem;
+  color: #cbd5f5;
+}
+
+.contact {
+  padding: 2.5rem 1.5rem 3rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.contact h2 {
+  margin-bottom: 1rem;
+}
+
+.contact p {
+  margin: 0.4rem 0;
+}
+
+/* ===== Ice Machine Grid ===== */
+.page-intro {
+  margin-bottom: 2rem;
+  color: #9ca3af;
+  font-size: 1rem;
+}
+
+.ice-machine-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.ice-machine-card {
+  background: rgba(15, 23, 42, 0.98);
+  border-radius: 0.75rem;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.ice-machine-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border-color: #3b82f6;
+}
+
+.ice-machine-image-wrapper {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  background: radial-gradient(circle at top, #0b1120, #020617);
+}
+
+.ice-machine-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.ice-machine-card:hover .ice-machine-image-wrapper img {
+  transform: scale(1.05);
+}
+
+.ice-machine-card h3 {
+  margin: 0;
+  padding: 1.25rem 1.5rem;
+  font-size: 1.1rem;
+  color: #e0f2fe;
+  text-align: center;
+}
+
+/* ===== Ice Machine Detail Page ===== */
+.machine-detail {
+  padding: 2rem 1.5rem 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 2rem;
+  color: #38bdf8;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover {
+  color: #7dd3fc;
+  text-decoration: underline;
+}
+
+.machine-detail-content {
+  display: grid;
+  grid-template-columns: 0.75fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.machine-detail-images {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.machine-detail-image {
+  background: rgba(15, 23, 42, 0.98);
+  border-radius: 0.75rem;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.machine-detail-image h3 {
+  margin: 0;
+  padding: 0.75rem 1rem 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #93c5fd;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.machine-detail-image img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.machine-detail-info h1 {
+  margin: 0 0 1rem;
+  color: #e5f4ff;
+  font-size: 2rem;
+}
+
+.machine-price {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #38bdf8;
+  margin-bottom: 2rem;
+}
+
+.machine-description h3 {
+  margin: 0 0 0.75rem;
+  color: #e5f4ff;
+  font-size: 1.25rem;
+}
+
+.machine-description p {
+  margin: 0 0 1.5rem;
+  color: #cbd5f5;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+.description-translations {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(56, 189, 248, 0.35);
+}
+
+.description-language {
+  margin-bottom: 1.5rem;
+}
+
+.description-language:last-child {
+  margin-bottom: 0;
+}
+
+.description-language h4 {
+  margin: 0 0 0.5rem;
+  color: #e5f4ff;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.description-language p {
+  margin: 0;
+  color: #cbd5f5;
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  .machine-detail-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .machine-detail-images {
+    gap: 1.25rem;
+  }
+
+  .ice-machine-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* ===== Footer ===== */
+footer {
+  margin-top: auto;
+  padding: 1rem 2rem;
+  background-color: #020617;
+  border-top: 1px solid rgba(56, 189, 248, 0.4);
+  color: #9ca3af;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+
